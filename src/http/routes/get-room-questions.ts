@@ -4,11 +4,11 @@ import z from 'zod';
 import { db } from '../../db/connection.ts';
 import { schema } from '../../db/schema/index.ts';
 
-export const getRoomQuestionsRoute: FastifyPluginCallbackZod = (app) => {
+export const getRoomQuestionsRoute: FastifyPluginCallbackZod = app => {
   app.get(
     '/rooms/:id/questions',
     { schema: { params: z.object({ id: z.string() }) } },
-    async (request) => {
+    async request => {
       const { id } = request.params;
 
       const result = await db

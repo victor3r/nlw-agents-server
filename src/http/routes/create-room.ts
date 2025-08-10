@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { db } from '../../db/connection.ts';
 import { schema } from '../../db/schema/index.ts';
 
-export const createRoomRoute: FastifyPluginCallbackZod = (app) => {
+export const createRoomRoute: FastifyPluginCallbackZod = app => {
   app.post(
     '/rooms',
     {
